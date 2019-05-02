@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+	
+	<title>계산기</title>
+	<script type="text/javascript" src="./cal.min.js"></script>
+	<style type="text/css">
+		*{
+			max-width: 360px;
+		}
+	</style>
+</head>
+<body>
+	<div id="num1">
+		<h4>1번 입력</h4>
+		<table>
+			<tbody>
+				<tr>
+					<td style="text-align: right;">입력 정보</td>
+					<td style="text-align: right;">값</td>
+				</tr>
+				<tr>
+					<td style="text-align: right;">radius :</td>
+					<td><input type="number" name="radius" id="radius1" value="15.24" placeholder="radius 를 입력"></td>
+				</tr>
+				<tr>
+					<td style="text-align: right;">angle :</td>
+					<td><input type="number" name="angle" id="angle1" onchange="getall(this.value,1)" placeholder="angle 을 입력"></td>
+				</tr>
+				<tr>
+					<td style="text-align: right;">first length :</td>
+					<td><input type="number" name="firstlen" id="firstlen1" onchange="getmaking1(1)" placeholder="firstlen 을 입력"></td>
+				</tr>
+			</tbody>
+		</table>
+		<hr>
+		<table>
+			<tbody>
+				<tr>
+					<td style="text-align: right;">arch :</td>
+					<td id="arch1"></td>
+				</tr>
+				<tr>
+					<td style="text-align: right;">tangent length :</td>
+					<td id="tanlen1"></td>
+				</tr>
+				<tr>
+					<td style="text-align: right;">변환 angle :</td>
+					<td id="transang1"></td>
+				</tr>
+				<tr>
+					<td style="text-align: right;">minus angle :</td>
+					<td id="minusang1"></td>
+				</tr>
+				<tr>
+					<td style="text-align: right;">decrease :</td>
+					<td id="decrease1"></td>
+				</tr>
+				<tr>
+					<td style="text-align: right;">first marking :</td>
+					<td id="making1"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div id="num2">
+		<h4>2번 입력</h4>
+		<table>
+			<tbody>
+				<tr>
+					<td style="text-align: right;">입력 정보</td>
+					<td style="text-align: right;">값</td>
+				</tr>
+				<tr>
+					<td style="text-align: right;">radius :</td>
+					<td><input type="number" name="radius" id="radius2" value="15.24" placeholder="radius 를 입력"></td>
+				</tr>
+				<tr>
+					<td style="text-align: right;">angle :</td>
+					<td><input type="number" name="angle" id="angle2" onchange="getall(this.value,2)" placeholder="angle 을 입력"></td>
+				</tr>
+				<tr>
+					<td style="text-align: right;">second length :</td>
+					<td><input type="number" name="seclen" id="firstlen2" onchange="getmaking1(2)" placeholder="firstlen 을 입력"></td>
+				</tr>
+			</tbody>
+		</table>
+		<hr>
+		<table>
+			<tbody>
+				<tr>
+					<td style="text-align: right;">arch :</td>
+					<td id="arch2"></td>
+				</tr>
+				<tr>
+					<td style="text-align: right;">tangent length :</td>
+					<td id="tanlen2"></td>
+				</tr>
+				<tr>
+					<td style="text-align: right;">변환 angle :</td>
+					<td id="transang2"></td>
+				</tr>
+				<tr>
+					<td style="text-align: right;">minus angle :</td>
+					<td id="minusang2"></td>
+				</tr>
+				<tr>
+					<td style="text-align: right;">decrease :</td>
+					<td id="decrease2"></td>
+				</tr>
+				<tr>
+					<td style="text-align: right;">second marking :</td>
+					<td id="making2"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<br>
+	<div style="text-align: center;">
+		<span>total length : </span><span id="total"></span>
+	</div>
+</body>
+</html>
