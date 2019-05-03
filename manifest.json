@@ -1,6 +1,6 @@
 {
-  "name": "계산기",
-  "short_name": "계산기",
+  "name": "밴딩 계산기",
+  "short_name": "밴딩 계산기",
   "icons": [{
     "src": "./calculator128.png",
       "sizes": "128x128",
