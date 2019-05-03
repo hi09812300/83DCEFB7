@@ -5,14 +5,151 @@
 	<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
 	
 	<title>계산기</title>
-	<script type="text/javascript" src="./cal.min.js"></script>
-	<style type="text/css">
-		*{
-			max-width: 360px;
-		}
-	</style>
+	<link rel="stylesheet" href="./style.css">
+	<link rel="manifest" href="./manifest.json"/>
+	<script type="text/javascript" src="./cal.js"></script>
+	<script type="text/javascript">
+	if ('serviceWorker' in navigator) {
+		window.addEventListener('load', function() {
+			navigator.serviceWorker.register('./sw.js').then(function(registration) {
+				// Registration was successful
+				console.log('ServiceWorker registration successful with scope: ', registration.scope);
+			}).catch(function(err) {
+				// registration failed :(
+				console.log('ServiceWorker registration failed: ', err);
+			});
+		});
+	}
+	</script>
 </head>
-<body>
+<body onload="clear();">
+	<table class="menu">
+		<tbody>
+			<tr>
+				<td style="width: 30%;" rowspan="2"><span class="clearbtn" onclick="clear();">Clear</span></td>
+				<td>radius</td>
+				<td><span>total</span></td>
+			</tr>
+			<tr>
+				<td><input type="number" name="radius" id="radius" style="width: 120px;" value="15.24" placeholder="radius 를 입력"></td>
+				<td><span id="total"></span></td>
+			</tr>
+		</tbody>
+	</table>
+<hr>
+	<table  cellpadding="4">
+		<tbody>
+			<tr>
+				<td></td>
+				<td style="text-align: center;">입력 값</td>
+				<td style="text-align: center;">마킹 값</td>
+			</tr>
+			<tr>
+				<td style="text-align: right;">1</td>
+				<td style="text-align: center;">
+					<input type="number" name="angle" id="angle1" onchange="getall(this.value,1)" placeholder="angle 을 입력"><br>
+					<input type="number" name="firstlen" id="firstlen1" onchange="getmaking1(1)" placeholder="length 을 입력">
+				</td>
+				<td style="text-align: center;"><span id="making1"></span></td>
+			</tr>
+			<tr>
+				<td style="text-align: right;">2</td>
+				<td style="text-align: center;">
+					<input type="number" name="angle" id="angle2" onchange="getall(this.value,2)" placeholder="angle 을 입력"><br>
+					<input type="number" name="firstlen" id="firstlen2" onchange="getmaking1(2)" placeholder="length 을 입력">
+				</td>
+				<td style="text-align: center;"><span id="making2"></span></td>
+			</tr>
+			<tr>
+				<td style="text-align: right;">3</td>
+				<td style="text-align: center;">
+					<input type="number" name="angle" id="angle3" onchange="getall(this.value,3)" placeholder="angle 을 입력"><br>
+					<input type="number" name="firstlen" id="firstlen3" onchange="getmaking1(3)" placeholder="length 을 입력">
+				</td>
+				<td style="text-align: center;"><span id="making3"></span></td>
+			</tr>
+			<tr>
+				<td style="text-align: right;">4</td>
+				<td style="text-align: center;"><input type="number" name="angle" id="angle4" onchange="getall(this.value,4)" placeholder="angle 을 입력"><br>
+					<input type="number" name="firstlen" id="firstlen4" onchange="getmaking1(4)" placeholder="length 을 입력">
+				</td>
+				<td style="text-align: center;"><span id="making4"></span></td>
+			</tr>
+			<tr>
+				<td style="text-align: right;">5</td>
+				<td style="text-align: center;"><input type="number" name="angle" id="angle5" onchange="getall(this.value,5)" placeholder="angle 을 입력"><br>
+					<input type="number" name="firstlen" id="firstlen5" onchange="getmaking1(5)" placeholder="length 을 입력"></td>
+				<td style="text-align: center;"><span id="making5"></span></td>
+			</tr>
+			<tr>
+				<td style="text-align: right;">6</td>
+				<td style="text-align: center;"><input type="number" name="angle" id="angle6" onchange="getall(this.value,6)" placeholder="angle 을 입력"><br>
+					<input type="number" name="firstlen" id="firstlen6" onchange="getmaking1(6)" placeholder="length 을 입력"></td></td>
+				<td style="text-align: center;"><span id="making6"></span></td>
+			</tr>
+			<tr>
+				<td style="text-align: right;">7</td>
+				<td style="text-align: center;"><input type="number" name="angle" id="angle7" onchange="getall(this.value,7)" placeholder="angle 을 입력"><br>
+					<input type="number" name="firstlen" id="firstlen7" onchange="getmaking1(7)" placeholder="length 을 입력"></td></td>
+				<td style="text-align: center;"><span id="making7"></span></td>
+			</tr>
+			<tr>
+				<td style="text-align: right;">8</td>
+				<td style="text-align: center;"><input type="number" name="angle" id="angle8" onchange="getall(this.value,8)" placeholder="angle 을 입력"><br>
+					<input type="number" name="firstlen" id="firstlen8" onchange="getmaking1(8)" placeholder="length 을 입력"></td></td>
+				<td style="text-align: center;"><span id="making8"></span></td>
+			</tr>
+			<tr>
+				<td style="text-align: right;">9</td>
+				<td style="text-align: center;"><input type="number" name="angle" id="angle9" onchange="getall(this.value,9)" placeholder="angle 을 입력"><br>
+					<input type="number" name="firstlen" id="firstlen9" onchange="getmaking1(9)" placeholder="length 을 입력"></td></td>
+				<td style="text-align: center;"><span id="making9"></span></td>
+			</tr>
+			<tr>
+				<td style="text-align: right;">10</td>
+				<td style="text-align: center;"><input type="number" name="angle" id="angle10" onchange="getall(this.value,10)" placeholder="angle 을 입력"><br>
+					<input type="number" name="firstlen" id="firstlen10" onchange="getmaking1(10)" placeholder="length 을 입력"></td></td>
+				<td style="text-align: center;"><span id="making10"></span></td>
+			</tr>
+			<tr>
+				<td style="text-align: right;">11</td>
+				<td style="text-align: center;"><input type="number" name="angle" id="angle11" onchange="getall(this.value,11)" placeholder="angle 을 입력"><br>
+					<input type="number" name="firstlen" id="firstlen11" onchange="getmaking1(11)" placeholder="length 을 입력"></td></td></td>
+				<td style="text-align: center;"><span id="making11"></span></td>
+			</tr>
+			<tr>
+				<td style="text-align: right;">12</td>
+				<td style="text-align: center;"><input type="number" name="angle" id="angle12" onchange="getall(this.value,12)" placeholder="angle 을 입력"><br>
+					<input type="number" name="firstlen" id="firstlen12" onchange="getmaking1(12)" placeholder="length 을 입력"></td></td></td>
+				<td style="text-align: center;"><span id="making12"></span></td>
+			</tr>
+			<tr>
+				<td style="text-align: right;">13</td>
+				<td style="text-align: center;"><input type="number" name="angle" id="angle13" onchange="getall(this.value,13)" placeholder="angle 을 입력"><br>
+					<input type="number" name="firstlen" id="firstlen13" onchange="getmaking1(13)" placeholder="length 을 입력"></td>
+				<td style="text-align: center;"><span id="making13"></span></td>
+			</tr>
+			<tr>
+				<td style="text-align: right;">14</td>
+				<td style="text-align: center;"><input type="number" name="angle" id="angle14" onchange="getall(this.value,14)" placeholder="angle 을 입력"><br>
+					<input type="number" name="firstlen" id="firstlen14" onchange="getmaking1(14)" placeholder="length 을 입력"></td>
+				<td style="text-align: center;"><span id="making14"></span></td>
+			</tr>
+			<tr>
+				<td style="text-align: right;">15</td>
+				<td style="text-align: center;"><input type="number" name="angle" id="angle15" onchange="getall(this.value,15)" placeholder="angle 을 입력"><br>
+					<input type="number" name="firstlen" id="firstlen15" onchange="getmaking1(15)" placeholder="length 을 입력"></td>
+				<td style="text-align: center;"><span id="making15"></span></td>
+			</tr>
+			<tr>
+				<td style="text-align: right;">16</td>
+				<td style="text-align: center;"><input type="number" name="angle" id="angle16" onchange="getall(this.value,16)" placeholder="angle 을 입력"><br>
+					<input type="number" name="firstlen" id="firstlen16" onchange="getmaking1(16)" placeholder="length 을 입력"></td>
+				<td style="text-align: center;"><span id="making16"></span></td>
+			</tr>
+		</tbody>
+	</table>
+	<!--
 	<div id="num1">
 		<h4>1번 입력</h4>
 		<table>
@@ -23,7 +160,7 @@
 				</tr>
 				<tr>
 					<td style="text-align: right;">radius :</td>
-					<td><input type="number" name="radius" id="radius1" value="15.24" placeholder="radius 를 입력"></td>
+					<td><input type="number" name="radius" id="radius" value="15.24" placeholder="radius 를 입력"></td>
 				</tr>
 				<tr>
 					<td style="text-align: right;">angle :</td>
@@ -120,6 +257,6 @@
 	<br>
 	<div style="text-align: center;">
 		<span>total length : </span><span id="total"></span>
-	</div>
+	</div>-->
 </body>
 </html>

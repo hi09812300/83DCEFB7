@@ -1,0 +1,27 @@
+.clearbtn{
+	border: 2px solid #e64040;
+	border-radius: 5px;
+	background-color: #fff;
+	color: #000;
+	text-decoration: none;
+	font-weight: bold;
+	padding: 10px 0px;
+	cursor: pointer;
+	text-align: center;
+	width: 60px;
+	display: block;
+}
+.clearbtn:hover{
+	background-color: #e64040;
+	color: #fff;
+}
+table{
+	width: 100%;
+}
+input{
+	max-width: 70%;
+}
+.menu td{
+	text-align: center;
+	width: 40%;
+}
