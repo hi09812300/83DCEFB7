@@ -10,7 +10,8 @@ let cacheFiles = [
   './style.css',
   './calculator128.png',
   './index.html',
-  './manifest.png'
+  './manifest.png',
+  './cal.min.js'
 ];
 
 self.addEventListener('install', function(event) {
