@@ -2,11 +2,11 @@
   "name": "계산기",
   "short_name": "계산기",
   "icons": [{
-    "src": "/calculator128.png",
+    "src": "./calculator128.png",
       "sizes": "128x128",
       "type": "image/png"
     }, {
-      "src": "/calculator256.png",
+      "src": "./calculator256.png",
       "sizes": "256x256",
       "type": "image/png"
     }],
