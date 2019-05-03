@@ -26,7 +26,7 @@
 	<table class="menu">
 		<tbody>
 			<tr>
-				<td style="width: 30%;" rowspan="2"><span class="clearbtn" onclick="clear();">Clear</span></td>
+				<td style="width: 30%;" rowspan="2"><button class="clearbtn" id="btn">Clear</button></td>
 				<td>radius</td>
 				<td><span>total</span></td>
 			</tr>
@@ -36,6 +36,9 @@
 			</tr>
 		</tbody>
 	</table>
+	<script type="text/javascript">
+		document.getElementById("btn").addEventListener("click", clear);
+	</script>
 <hr>
 	<table  cellpadding="4">
 		<tbody>
