@@ -1,6 +1,6 @@
 'use strict';
 
-let cacheVersion = 1.2;
+let cacheVersion = 1.3;
 let cacheName = 'app';
 let cacheLabel = cacheName + '::' + cacheVersion;
 let cacheFiles = [
@@ -8,11 +8,12 @@ let cacheFiles = [
   './style.css',
   './calculator128.png',
   './index.html',
+  './offline.html',
   './manifest.png',
   './cal.min.js'
 ];
 
-const OFFLINE_URL = 'index.html';
+const OFFLINE_URL = 'offline.html';
 
 function createCacheBustedRequest(url) {
   let request = new Request(url, {cache: 'reload'});
@@ -52,7 +53,7 @@ self.addEventListener('fetch', event => {
     event.respondWith(
       fetch(event.request).catch(error => {
         console.log('Fetch failed; returning offline page instead.', error);
-        return caches.match("index.html");
+        return caches.match(OFFLINE_URL);
       })
     );
   }else{
